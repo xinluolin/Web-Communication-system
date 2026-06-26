@@ -23,30 +23,39 @@
 
 ## 环境要求
 
-- **JDK 21** 或更高版本
-- **Maven 3.8+**（也可使用项目自带 Maven Wrapper）
+- **JDK 21** 或更高版本（只需装这一个，Maven 项目已自带）
 
-## 快速开始
+没有装过 JDK？去这里下载安装：[https://adoptium.net/download/](https://adoptium.net/download/)（选择 Temurin 21）
 
-### 1. 构建项目
+## 快速开始（推荐小白用这个 👇）
+
+### Windows 用户
+
+1. 装好 JDK 21
+2. 双击 `start.bat`
+3. 等待构建完成，浏览器会自动打开
+
+### Mac / Linux 用户
+
+```bash
+chmod +x start.sh
+./start.sh
+```
+
+---
+
+## 手动启动（开发者）
+
+### 1. 构建
 
 ```bash
 cd sys
-./mvnw clean package -DskipTests
+./mvnw clean package -DskipTests    # Mac/Linux
+mvnw.cmd clean package -DskipTests  # Windows
 ```
 
-Windows 系统：
-```cmd
-mvnw.cmd clean package -DskipTests
-```
+### 2. 运行
 
-### 2. 启动应用
-
-```bash
-./mvnw spring-boot:run
-```
-
-或直接运行构建好的 JAR 包：
 ```bash
 java -jar target/sys-0.0.1-SNAPSHOT.jar
 ```
@@ -55,7 +64,7 @@ java -jar target/sys-0.0.1-SNAPSHOT.jar
 
 访问 `http://localhost:8080`
 
-如需修改端口，编辑 `src/main/resources/application.properties`：
+如需改端口，编辑 `src/main/resources/application.properties`：
 ```properties
 server.port=8080
 ```
@@ -108,6 +117,8 @@ server.port=8080
 sys/
 ├── pom.xml                              # Maven 配置
 ├── README.md                            # 本文件
+├── start.bat                            # Windows 一键启动脚本
+├── start.sh                             # Mac/Linux 一键启动脚本
 ├── uploads/                             # 上传文件目录（已加入 .gitignore）
 │   ├── images/
 │   └── videos/
